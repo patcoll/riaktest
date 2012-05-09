@@ -1,0 +1,8 @@
+description "<%= @couch_service_name %>"
+start on filesystem
+stop on runlevel S
+respawn
+
+exec <%= @cwd %>/build/bin/couchdb
+
+

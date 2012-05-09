@@ -1,0 +1,17 @@
+description "mongodb-<%= @name %>"
+start on filesystem
+stop on runlevel S
+respawn
+
+# limit stack 16384 16384
+# limit sigpending 10000 10000
+# limit nproc 10000 10000
+
+script
+  # ulimit -n 65536
+  exec su -s /bin/sh -c 'exec "$0" "$@"' <%= node[:mongodb][:user] %> -- <%= @prefix %>/bin/mongod --config /etc/mongodb-<%= @name %>.conf
+end script
+
+pre-start script
+  rm -f <%= node[:mongodb][:dbpath] %>/<%= @name %>/mongod.lock
+end script

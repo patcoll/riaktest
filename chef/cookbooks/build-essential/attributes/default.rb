@@ -1,0 +1,1 @@
+default[:build_essential][:src_dir] = "/usr/local/src"
