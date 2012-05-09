@@ -1,0 +1,20 @@
+# python noise
+*.pyc
+
+# vagrant
+.vagrant
+/vm.yml
+
+# old skool
+.svn
+CVS
+
+# osx noise
+.DS_Store
+
+# swap/undo files
+*.swp
+*.un~
+
+*.log
+
